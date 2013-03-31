@@ -1,0 +1,160 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ */
+
+@import "bourbon";
+@import "normalize";
+
+/* Variables */
+$bg-color: #f7f7f7;
+$fg-color: #fff;
+$bdr-color: #ccc;
+$bdr-alt-color: #ddd;
+
+$pri-color: #444;
+$sec-color: #999;
+$emph-color: #111;
+
+
+/* Simple 640 layout */
+
+* {
+  @include box-sizing(border-box);
+}
+
+body {
+  text-align: center;
+  font: 100%/1.5 $lucida-grande;
+  margin-top: 2%;
+  background: $bg-color;
+  color: $pri-color;
+  
+  p, td {
+    font-size: .8em;
+  }
+}
+
+#container {
+  width: 640px;
+  margin: 0 auto;
+  text-align: left;
+  background: $fg-color;
+  border: 1px solid $bdr-color;
+  
+  #header, #content {
+    padding: 20px;
+  }
+}
+
+#header {
+  @include clearfix;
+  background: #eee;
+  
+  p {
+    margin: 5px 0 0 0;
+  }
+  
+  #account {
+    float: left;
+    
+    p a {
+      text-decoration: none;
+      font-weight: bold;
+      color: $emph-color;
+      border-bottom: 1px solid $bdr-alt-color;
+    }
+  }
+  
+  #navigation {
+    float: right;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+    li {
+      display: inline-block;
+      
+      a {
+        @include button(pill, #1c344c);
+        font-size: .8em;
+      }
+    }
+  }
+}
+
+h1, h2, h3 {
+  font-size: 1.4em;
+}
+
+h1, h2, h3, th {
+  color: $emph-color;
+  font: inherit normal $verdana;
+  border-bottom: 1px solid $bdr-color;
+  padding-bottom: 5px;
+}
+
+.button, button {
+  @include button;
+  font-size: 100% !important;
+  
+  &.facebook {
+    @include button(simple, #3b5998);
+  }
+}
+
+/* Notifications */
+#flash {
+  list-style: none;
+  padding: 0;
+  margin-top: 0;
+  
+  > li {
+    margin-bottom: 1em;
+  }
+}
+.notice, .success, .alert {
+  font-size: .8em;
+  padding: 5px;
+  text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+.notice {
+  color: #c09853;
+  background: #fcf8e3;
+  border: 1px solid #fbeed5;
+}
+.success {
+  color: #468847;
+  background: #dff0d8;
+  border: 1px solid #d6e9c6;
+}
+.alert {
+  color: #b94a48;
+  background: #f2dede;
+  border: 1px solid #eed3d7;
+}
+
+/* Tables */
+table {
+  td, th {
+    padding: 10px 0;
+  }
+  td {
+    border-bottom: 1px solid $bdr-alt-color;
+  }
+  tr:last-child td {
+    border-bottom: 0;
+  }
+  th {
+    border-bottom: 1px solid $bdr-color;
+    color: $emph-color;
+  }
+}

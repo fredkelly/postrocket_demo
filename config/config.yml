@@ -1,0 +1,15 @@
+defaults: &DEFAULTS
+  facebook_app_id: 585054044852581
+  facebook_secret: fd3f021fb750aca94be34b3eec4d0028
+  facebook_scope:
+    - manage_pages
+    - read_insights
+
+development:
+  <<: *DEFAULTS
+
+test:
+  <<: *DEFAULTS
+
+production:
+  <<: *DEFAULTS

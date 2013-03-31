@@ -1,0 +1,18 @@
+%h1 Your Pages
+%p Select which pages to subscribe to&hellip;
+%table(width="100%")
+  %tr
+    %th Page
+    %th Subscribed
+  - @pages.each do |page|
+    %tr
+      %td= page.name
+      %td
+        = form_for page do |f|
+          = f.check_box :subscribed
+
+:javascript
+  $(function() {
+    window.router = new PostRocket.Routers.PagesRouter({posts: #{@pages.to_json.html_safe}});
+    Backbone.history.start();
+  });

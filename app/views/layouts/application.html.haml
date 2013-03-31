@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    %title PostRocket | Demo App
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+  %body{class: ('logged-in' if current_user)}
+    #container
+      #header
+        #account
+          - if current_user
+            %p
+              Signed in as #{current_user.first_name} (via #{current_user.provider.capitalize})
+              = link_to 'Log out', logout_path, id: 'logout'
+          - else
+            = link_to 'Connect with Facebook', '/auth/facebook', id: 'login', class: %w(button facebook)
+        %ul#navigation
+          %li=link_to 'My Pages', pages_path if can?(:manage, Page)
+      #content
+        = flash_messages
+        = yield
