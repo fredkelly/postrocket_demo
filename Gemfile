@@ -12,7 +12,7 @@ gem 'omniauth-facebook'
 gem 'delayed_job_mongoid'
 gem 'koala'
 gem 'cancan'
-gem 'backbone-on-rails'
+gem 'rails-backbone'
 
 gem 'haml-rails'
 gem 'bourbon'

@@ -1,0 +1,34 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="20" id="wrapper" style="background: #f7f7f7; font: 100%/1.5 sans-serif;">
+  <tr>
+    <td align="center">
+        <!-- primary content -->
+        <table width="640" border="0" cellspacing="0" cellpadding="20" id="container" style="background: #ffffff; border: 1px solid #cccccc; text-align: left;">
+          <tr>
+            <th id="header" style="background: #eeeeee; font-size: 20px;">
+              <strong>Hey <%= @user.first_name %>,</strong>
+            </th>
+          </tr>
+          <tr>
+            <td>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" id="content" style="font-size: 14px;">
+                <tr>
+                  <td>
+                    <%= yield %>
+                  </td>
+                </tr>
+                <tr>
+                </tr><tr>
+                  <td class="spacer" style="height: 20px;">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>The <a href="http://getpostrocket.com/" target="_blank" style="color: #4e8cae;">PostRocket</a> Team (hopefully..)</strong>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        
+    </table></td>
+  </tr>
+</table>

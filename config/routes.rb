@@ -1,8 +1,11 @@
 PostRocket::Application.routes.draw do
-  root to: 'welcome#index'
+  root to: 'main#index'
   
-  # units
+  # standard CRUD
   resources :pages, only: [:index, :show, :update]
+  
+  # facebook real-time (POST/GET)
+  resources :facebook_updates, only: [:create, :index]
 
   # authentication stuff
   match 'auth/:provider/callback', to: 'sessions#create'

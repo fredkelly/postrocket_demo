@@ -1,0 +1,10 @@
+<p>Here is a summary of the following post made to <strong><%= @post.page %></strong>..</p>
+<p>"<%= @post.object['message'] %>" <em>(<%= time_ago_in_words(@post.created_at) %> ago)</em>.</p>
+<table width="50%" border="0" cellspacing="1" cellpadding="5" class="metrics" style="font-size: 14px;">
+  <% @insights.each do |name, value| %>
+    <tr>
+      <th style="background: #eeeeee; text-align: left;"><%= name.humanize %></th>
+      <td style="background: #cee4f0; text-align: center;"><%= value %></td>
+    </tr>
+  <% end %>
+</table>

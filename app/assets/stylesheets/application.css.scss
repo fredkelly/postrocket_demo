@@ -17,8 +17,10 @@
 /* Variables */
 $bg-color: #f7f7f7;
 $fg-color: #fff;
+$hdr-color: #eee;
 $bdr-color: #ccc;
 $bdr-alt-color: #ddd;
+$pr-color: #4e8cae;
 
 $pri-color: #444;
 $sec-color: #999;
@@ -37,10 +39,6 @@ body {
   margin-top: 2%;
   background: $bg-color;
   color: $pri-color;
-  
-  p, td {
-    font-size: .8em;
-  }
 }
 
 #container {
@@ -52,12 +50,13 @@ body {
   
   #header, #content {
     padding: 20px;
+    font-size: .8em;
   }
 }
 
 #header {
   @include clearfix;
-  background: #eee;
+  background: $hdr-color;
   
   p {
     margin: 5px 0 0 0;
@@ -84,30 +83,45 @@ body {
       display: inline-block;
       
       a {
-        @include button(pill, #1c344c);
-        font-size: .8em;
+        @include button(simple, $pr-color);
+        padding: 5px 8px;
+        font-size: 1em;
       }
     }
   }
 }
 
-h1, h2, h3 {
-  font-size: 1.4em;
-}
+#content {
+  a, a:link, a:active, a:visited {
+    color: $pr-color;
+    text-decoration: none;
+    border-bottom: 1px solid;
+    
+    &.button {
+      color: $pri-color;
+      font-size: 1em;
+    }
+  }
 
-h1, h2, h3, th {
-  color: $emph-color;
-  font: inherit normal $verdana;
-  border-bottom: 1px solid $bdr-color;
-  padding-bottom: 5px;
+  h1, h2, h3 {
+    font-size: 1.4em;
+  }
+
+  h1, h2, h3, th {
+    color: $emph-color;
+    border-bottom: 1px solid $bdr-color;
+    padding-bottom: 5px;
+  }
 }
 
 .button, button {
-  @include button;
-  font-size: 100% !important;
-  
+  @include button(simple, $bdr-alt-color);
+  padding: 5px 8px;
+  font-size: .8em;
+    
   &.facebook {
     @include button(simple, #3b5998);
+    font-size: 100% !important;
   }
 }
 
@@ -157,4 +171,18 @@ table {
     border-bottom: 1px solid $bdr-color;
     color: $emph-color;
   }
+}
+
+/* Posts list*/
+.posts {
+  li {
+    time {
+      color: $sec-color;
+    }
+  }
+}
+
+/* Object controls */
+.controls {
+  text-align: right;
 }

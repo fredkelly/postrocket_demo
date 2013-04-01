@@ -16,7 +16,7 @@
           - else
             = link_to 'Connect with Facebook', '/auth/facebook', id: 'login', class: %w(button facebook)
         %ul#navigation
-          %li=link_to 'My Pages', pages_path if can?(:manage, Page)
+          %li= link_to 'My Pages', pages_path + '#/index' if can?(:manage, Page)
       #content
         = flash_messages
         = yield

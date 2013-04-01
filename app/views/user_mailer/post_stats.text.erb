@@ -1,0 +1,6 @@
+Here is a summary of the following post made to #{@post.page}..
+\
+"#{@post.object['message']}" (#{time_ago_in_words(@post.created_at)} ago).
+\
+- @insights.each do |name, value|
+  #{name.humanize}: #{value}
